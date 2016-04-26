@@ -1,0 +1,25 @@
+syntax = "proto3";
+package t3;
+
+
+message T3PlayerDataMessage {
+ string playerName = 1;
+ int32 playerId = 2;
+}
+
+message T3StartNewGameMessage {
+ int32 initPlayerId = 1;
+}
+
+message T3PlayerMoveMessage {
+ int32 playerId = 1;
+ int32 tileNum = 2;
+}
+
+message T3GameFinishedMessage {
+ int32 winnerId = 1;
+}
+
+message T3SwitchPlayerMessage {
+ int32 activePlayerId = 1;
+}
