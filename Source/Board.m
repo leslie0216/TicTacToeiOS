@@ -9,7 +9,6 @@
 #import "Board.h"
 #import "Parameters.h"
 #import "Tile.h"
-#import "CCTextureCache.h"
 
 @implementation Board
 {
@@ -105,27 +104,25 @@
 
 -(void)resetTiles
 {
-    CCTexture* texture = [[CCTextureCache sharedTextureCache] addImage:EMPTY_IMAGE];
     for(int col = 0; col < GRID_SIZE; col++)
     {
         for(int row = 0; row < GRID_SIZE; row++)
         {
             Tile *tile = _gridArray[col][row];
-            [tile.tileImage setTexture: texture];
+            [tile setImage:EMPTY_IMAGE];
         }
     }
 }
 
 -(void)setTileImage:(int)tileNum image:(NSString *)imagePath
 {
-    CCTexture* texture = [[CCTextureCache sharedTextureCache] addImage:imagePath];
     for(int col = 0; col < GRID_SIZE; col++)
     {
         for(int row = 0; row < GRID_SIZE; row++)
         {
             Tile *tile = _gridArray[col][row];
             if (tile.tileNum == tileNum) {
-                [tile.tileImage setTexture:texture];
+                [tile setImage:imagePath];
                 return;
             }
         }

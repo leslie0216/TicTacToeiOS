@@ -31,5 +31,17 @@
     tileBtn.enabled = enabled;
 }
 
+-(void)setImage:(NSString *)imangePath
+{
+    CCTexture* texture = [[CCTextureCache sharedTextureCache] addImage:imangePath];
+    [self.tileImage setTexture:texture];
+
+    CCSpriteFrame *frame = [CCSpriteFrame frameWithImageNamed:imangePath];
+    [tileBtn setBackgroundSpriteFrame:frame forState:CCControlStateNormal];
+    [tileBtn setBackgroundSpriteFrame:frame forState:CCControlStateHighlighted];
+    [tileBtn setBackgroundSpriteFrame:frame forState:CCControlStateDisabled];
+    [tileBtn setBackgroundSpriteFrame:frame forState:CCControlStateSelected];
+}
+
 
 @end

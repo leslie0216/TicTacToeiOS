@@ -406,6 +406,7 @@ static GameManager *_sharedGameManager = nil;
                                                                       userInfo:userInfo];
                 });
             }
+            break;
         }
         case MSG_SERVER_CLIENT_GAME_DRAW:
         {

@@ -14,5 +14,6 @@
 @property (nonatomic, strong) CCSprite *tileImage;
 
 -(void)setEnabled:(BOOL)enabled;
+-(void)setImage:(NSString *)imangePath;
 
 @end
