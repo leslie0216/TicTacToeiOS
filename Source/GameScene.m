@@ -67,6 +67,7 @@
     
     if (![[GameManager sharedGameManager] isHost]) {
         [[GameManager sharedGameManager] sendClientSceneLoadedEvent];
+        lbTurnMsg.string = @"Waiting...";
     }
 }
 
