@@ -309,15 +309,15 @@ static GameManager *_sharedGameManager = nil;
             recvMsg = [T3PlayerDataMessage parseFromData:msgData error:nil];
             if (self.remotePlayer == nil) {
                 self.remotePlayer = [[Player alloc]init];
-                if (isHost) {
-                    self.remotePlayer.imageName = O_IMAGE;
-                } else {
-                    self.remotePlayer.imageName = X_IMAGE;
-                }
             }
             
             self.remotePlayer.playerName = recvMsg.playerName;
             self.remotePlayer.playerID = recvMsg.playerId;
+            if (isHost) {
+                self.remotePlayer.imageName = O_IMAGE;
+            } else {
+                self.remotePlayer.imageName = X_IMAGE;
+            }
             
             if (!isHost) {
                 NSDictionary *userInfo = @{ @"serverName": recvMsg.playerName};
