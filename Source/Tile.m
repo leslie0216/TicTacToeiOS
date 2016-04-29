@@ -18,7 +18,8 @@
 
 -(void)onMove
 {
-    if ([[GameManager sharedGameManager]activePlayerID] == [[[GameManager sharedGameManager]localPlayer]playerID]) {
+    if ([[GameManager sharedGameManager]activePlayerID] == [[[GameManager sharedGameManager]localPlayer]playerID] &&
+        [[GameManager sharedGameManager]isValidTile:self.tileNum]) {
         CCLOG(@"tile %d clicked", self.tileNum);
         [[AudioManager sharedAudioManager] playButtonClickedSound];
         

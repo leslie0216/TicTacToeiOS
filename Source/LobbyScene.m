@@ -124,7 +124,7 @@
     NSString* remoteName = [[notification userInfo] objectForKey:@"peerName"];
     NSString* UUID = [[notification userInfo] objectForKey:@"peerUUID"];
     if ([[GameManager sharedGameManager]isHost]) {
-        NSString* msg = [NSString stringWithFormat:@"%@ would like to join your game, do you accept?", remoteName];
+        NSString* msg = [NSString stringWithFormat:@"\"%@\" would like to join your game, do you accept?", remoteName];
         
         T3ConnectAlertView *alert = [[T3ConnectAlertView alloc] initWithTitle:@"Player Request" message:msg delegate:self cancelButtonTitle:@"Decline" otherButtonTitles:@"Accept", nil];
         
@@ -140,7 +140,7 @@
 {
     NSString* remoteName = [[notification userInfo] objectForKey:@"serverName"];
     if (![[GameManager sharedGameManager]isHost]) {
-        NSString* msg = [NSString stringWithFormat:@"The game %@ was found,. Would you like to connect?", remoteName];
+        NSString* msg = [NSString stringWithFormat:@"The game \"%@\" was found,. Would you like to connect?", remoteName];
         
         T3ConnectAlertView *alert = [[T3ConnectAlertView alloc] initWithTitle:@"Game Found" message:msg delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Connect", nil];
         

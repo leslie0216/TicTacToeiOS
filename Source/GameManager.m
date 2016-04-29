@@ -141,6 +141,13 @@ static GameManager *_sharedGameManager = nil;
     });
 }
 
+-(BOOL)isValidTile:(int)tileNum
+{
+    NSNumber *num = [NSNumber numberWithInt:tileNum];
+
+    return !([self.localPlayer.tileNumsPlayed containsObject:num] || [self.remotePlayer.tileNumsPlayed containsObject:num]);
+}
+
 -(void)playerMove:(int)playerId andTileNum:(int)tileNum
 {
     if (isHost) {

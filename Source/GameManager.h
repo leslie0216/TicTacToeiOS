@@ -30,5 +30,7 @@
 
 -(void)playerMove:(int)playerId andTileNum:(int)tileNum;
 
+-(BOOL)isValidTile:(int)tileNum;
+
 
 @end
